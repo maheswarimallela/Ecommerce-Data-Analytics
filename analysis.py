@@ -94,3 +94,44 @@ plt.savefig("visualizations/Profit_by_Category.png")
 plt.close()
 
 print("Chart 2 saved successfully!")
+# Chart 3: Sales by Region
+region_sales = df.groupby("Region")["Sales"].sum().sort_values(ascending=False)
+
+plt.figure()
+region_sales.plot(kind="bar")
+plt.title("Sales by Region")
+plt.xlabel("Region")
+plt.ylabel("Total Sales")
+plt.tight_layout()
+plt.savefig("visualizations/Sales_by_Region.png")
+plt.close()
+
+print("Chart 3 saved successfully!")
+# Chart 4: Sales by Sub-Category
+subcategory_sales = df.groupby("Sub-Category")["Sales"].sum().sort_values(ascending=False)
+
+plt.figure(figsize=(10, 6))
+subcategory_sales.plot(kind="bar")
+plt.title("Sales by Sub-Category")
+plt.xlabel("Sub-Category")
+plt.ylabel("Total Sales")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("visualizations/Sales_by_SubCategory.png")
+plt.close()
+
+print("Chart 4 saved successfully!")
+# Chart 5: Monthly Sales Trend
+monthly_sales = df.groupby("Month")["Sales"].sum()
+
+plt.figure(figsize=(12, 6))
+monthly_sales.plot(kind="line")
+plt.title("Monthly Sales Trend")
+plt.xlabel("Month")
+plt.ylabel("Total Sales")
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.savefig("visualizations/Monthly_Sales_Trend.png")
+plt.close()
+
+print("Chart 5 saved successfully!")
